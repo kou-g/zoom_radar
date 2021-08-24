@@ -71,7 +71,9 @@ window.onload = function() {
   // ********************************************
   // jsonファイル読み込み(レーダー画像の最新時刻を取得)
   // ********************************************
-  $.getJSON("/img_phh/latest_file.json", function (data){
+  //$.getJSON("/img_phh/latest_file.json", function (data){
+  function dummy(){
+  data = { "latest": "2021-08-23T02:00:00" };
     var dt = moment(data.latest);
 
     // -180分から0分までのファイル名を配列化
@@ -95,7 +97,8 @@ window.onload = function() {
     // アニメーションスピードをセット
     zr.speedValue = 3;
     setAnimationSpeed(zr.speedValue);
-  })
+  }
+  dummy();
 }
 
 

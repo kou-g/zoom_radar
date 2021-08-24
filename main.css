@@ -1,0 +1,44 @@
+body {
+   margin: 0;
+   padding: 0;
+}
+html, body{
+   width: 100%;
+   height: 100%;
+}
+#map{
+   width: 100%;
+   height: 90%;
+}
+
+/* ズームしたとき、画像をぼかさない */
+.leaflet-image-layer {
+   image-rendering: pixelated; /*pixelated;*/
+   image-rendering: -moz-crisp-edges;
+   -ms-interpolation-mode: nearest-neighbor;
+} 
+
+/* 地図タイルをモノクロ化 */
+.leaflet-tile{
+   -webkit-filter: grayscale(100%);
+   -moz-filter: grayscale(100%);
+   -ms-filter: grayscale(100%);
+   -o-filter: grayscale(100%);
+   filter: grayscale(100%);
+}
+
+.leaflet-html-legend{
+   width: 100%;
+   margin: 0;
+   padding: 0;
+}
+/* ie のみ適用 */
+@media all and (-ms-high-contrast: none) {
+   .custom-control {
+      padding-top: 0.5rem;
+      margin-left: 1.0rem;
+   }
+   #slider{
+      display: none;
+   }
+}

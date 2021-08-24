@@ -71,7 +71,9 @@ window.onload = function() {
   // ********************************************
   // jsonファイル読み込み(レーダー画像の最新時刻を取得)
   // ********************************************
-  $.getJSON("/img_prr/latest_file.json", function (data){
+  //$.getJSON("/img_prr/latest_file.json", function (data){
+  var dummy = function(){
+    var data = '{ "latest": "2021-08-23T02:00:00" }'
     var dt = moment(data.latest);
 
     // -180分から+60分までのファイル名を配列化

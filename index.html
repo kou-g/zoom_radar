@@ -38,10 +38,11 @@
   <!-- 凡例 -->
   <script src="./src/HtmlLegend/L.Control.HtmlLegend.js"></script>
   
+  <!-- main -->
 </head>
 <body>
   <nav class="navbar navbar-light bg-light">
-   <ul class="nav nav-pills">
+    <ul class="nav nav-pills">
       <!-- label-->
       <li class="nav-item">
         <h4 id="sliderLabel" style="padding-top: 0.3rem; font-family: Yu Gothic; font-weight: bold; width:16rem;"></h4>
@@ -85,7 +86,7 @@
         </button>  
       </li>
 
-      <!-- slider -->
+      <!-- スライダー -->
       <li class="nav-item">
         <input type="range" class="form-range slider mr-3" id="slider" step="1" style="width: 20em; vertical-align: -webkit-baseline-middle;">
       </li>
@@ -97,16 +98,12 @@
           <label style="vertical-align: -webkit-baseline-middle;" class="custom-control-label" for="customSwitches">自動更新</label>
         </div>
       </li>
-
-      <li>
-        <span class="alert alert-warning ml-2" role="alert">これはデモページです。</span>
-      </li>
     </ul>
 
     <!-- 強度 頂高度 切り替え -->    
     <form class="form-inline my-2 my-lg-0">
-        <a class="nav-link xs-light disabled" href="#">強度</a>
-        <a class="nav-link xs-light" href="phh.html">頂高度</a>
+        <a class="nav-link disabled" href="#">強度</a>
+        <a class="nav-link" href="phh.html">頂高度</a>
     </form>
   </nav>
   

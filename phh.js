@@ -1,6 +1,6 @@
 // 名前空間(グローバル汚染回避)  // ソースがちょっと読みにくくなる
 zr = {};
-zr.timeValues = [];
+zr.img_list = [];
 zr.pos;
 zr.radar;
 zr.map;
@@ -71,18 +71,15 @@ window.onload = function() {
   // ********************************************
   // jsonファイル読み込み(レーダー画像の最新時刻を取得)
   // ********************************************
-  //$.getJSON("/img_phh/latest_file.json", function (data){
-  function dummy(){
-  data = { "latest": "2021-08-23T02:00:00" };
-    var dt = moment(data.latest);
+  $.getJSON("/img_phh/latest_file.json", function (data){
 
-    // -180分から0分までのファイル名を配列化
-    dt.add(-180, "minutes");
-    var min = -180;
-    while (min <= 0) {
-      zr.timeValues.push(dt.format("YYYYMMDDHHmmSS"));
+    // -180分 から 10分毎に +0分 までのファイル名をリストに追加
+    var dt_latest = moment(data.latest);
+    var dt = moment(data.latest).add(-180, "minutes");
+    while (dt <= dt_latest) {
+      dt_format = dt.format("YYYYMMDDHHmmSS");
+      zr.img_list.push("./img_phh/"+dt_format+".gif");
       dt.add(10, "minutes");
-      min += 10;
     }
 
     // スライダの範囲をセット
@@ -97,8 +94,7 @@ window.onload = function() {
     // アニメーションスピードをセット
     zr.speedValue = 3;
     setAnimationSpeed(zr.speedValue);
-  }
-  dummy();
+  })
 }
 
 
@@ -107,19 +103,20 @@ window.onload = function() {
 // **************************
 function changeImg(){
   // レーダー画像を更新
-  var latest_radar_pos = 18;
-  var prefix = "./img_phh/";
-  zr.radar.setUrl(prefix+zr.timeValues[zr.pos]+".gif");
+  // var latest_radar_pos = 18;
+  // var prefix = "./img_phh/";
+  zr.radar.setUrl(zr.img_list[zr.pos]);
 
   // スライダ値を更新
   document.getElementById("slider").value = zr.pos;
 
   // utc -> localtime
-  var yyyy = zr.timeValues[zr.pos].slice(0,4);
-  var mm   = zr.timeValues[zr.pos].slice(4,6);
-  var dd   = zr.timeValues[zr.pos].slice(6,8);
-  var hh   = zr.timeValues[zr.pos].slice(8,10);
-  var nn   = zr.timeValues[zr.pos].slice(10,12);
+  var mydate = zr.img_list[zr.pos].split("/")[2];
+  var yyyy = mydate.slice(0,4);
+  var mm   = mydate.slice(4,6);
+  var dd   = mydate.slice(6,8);
+  var hh   = mydate.slice(8,10);
+  var nn   = mydate.slice(10,12);
   var utcTime = yyyy+"-"+mm+"-"+dd+" "+hh+":"+nn+":00";
   var localTime= moment.utc(utcTime).local().format('YYYY-MM-DD HH:mm:ss');
   var local_mm = moment(localTime).format('MM');
@@ -143,7 +140,7 @@ function play(){
   playTimeOut = setTimeout(function(){
     changeImg();
     // スライダが最大値に達したら最小値に戻す
-    if( zr.pos >= zr.timeValues.length - 1 ){
+    if( zr.pos >= zr.img_list.length - 1 ){
       zr.pos = 0;
       play();
     }else{
@@ -207,8 +204,8 @@ document.getElementById('forward').onclick = function(e){
   // play中は処理しない
   if (playTimeOut > 0){ return };
   // スライダが最大値に達していたら処理しない
-  if( zr.pos >= zr.timeValues.length - 1 ){
-    zr.pos = zr.timeValues.length - 1;
+  if( zr.pos >= zr.img_list.length - 1 ){
+    zr.pos = zr.img_list.length - 1;
     return;
   }
   // 1コマ先の画像を表示（スライダ、ラベル、画像を更新）

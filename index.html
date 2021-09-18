@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>zoom radar(強度)</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/src/bootstrap-4.6.0-dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="/src/icons-1.5.0/font/bootstrap-icons.css">
+  
+  <!-- css -->
+  <link rel="stylesheet" href="/src/Leaflet-1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="/src/HtmlLegend/L.Control.HtmlLegend.css" />
+  <link rel="stylesheet" href="main.css" />
+
+  <!-- for IE -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script src="/src/object-assign.js"></script>
+  <script src="/src/endsWith.js"></script>
+
+  <!-- moment-->
+  <script src="/src/moment-with-locales.min.js"></script>
+
+  <!-- bootstrap -->
+  <script src="/src/jquery-3.5.1.min.js"></script>
+	<script src="/src/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- leaflet -->
+  <script type="text/javascript" src="/src/Leaflet-1.7.1/dist/leaflet.js"></script>
+
+  <!-- mbTile -->
+  <script src="/src/Leaflet.TileLayer.MBTiles.js"></script>
+  <script src="/src/sql.js@0.3.2js/sql.js"></script>
+
+  <!-- 凡例 -->
+  <script src="/src/HtmlLegend/L.Control.HtmlLegend.js"></script>
+  
+  <!-- main -->
+</head>
+<body>
+  <div class="container-fluid">
+
+    <nav class="navbar navbar-light bg-light">
+      <ul class="nav nav-pills">
+
+        <!-- label -->
+        <li class="nav-item">
+          <h4 id="sliderLabel" style="padding-top: 0.3rem; font-family: Yu Gothic; font-weight: bold; width:16rem;"></h4>
+        </li>
+
+        <!-- button -->
+        <li class="nav-item">
+          <!-- back -->
+          <button type="button" class="btn btn-outline-success" aria-label="Left Align" id="back">
+            <i class="bi-skip-start-fill" role="img"></i>
+          </button>
+
+          <!-- forward -->
+          <button type="button" class="btn btn-outline-success" aria-label="Left Align" id="forward">
+            <i class="bi-skip-end-fill" role="img"></i>
+          </button>
+
+          <!-- play -->
+          <button type="button" class="btn btn-outline-success" aria-label="Left Align" id="play">
+            <i class="bi-play-fill" role="img"></i>
+          </button>
+        
+          <!-- stop -->
+          <button type="button" class="btn btn-outline-success" aria-label="Left Align" id="stop" style="display:none;">
+            <i class="bi-stop-fill" role="img"></i>
+          </button>
+  
+          <!-- スピードコントローラー -->
+          <button type="button" class="btn btn-outline-success mr-2" aria-label="Left Align" id="animationSpeed">
+            <i class="bi-reception-1 reception" id="reception-1" role="img" style="display:none;"></i>
+            <i class="bi-reception-2 reception" id="reception-2" role="img" style="display:none;"></i>
+            <i class="bi-reception-3 reception" id="reception-3" role="img" style="display:inline;"></i>
+            <i class="bi-reception-4 reception" id="reception-4" role="img" style="display:none;"></i>
+          </button>  
+        </li>
+
+        <!-- スライダー -->
+        <li class="nav-item">
+          <input type="range" class="form-range slider mr-3" id="slider" step="1" style="width: 20em; vertical-align: -webkit-baseline-middle;">
+        </li>
+
+        <!-- 自動更新 (画面サイズxs非表示)-->
+        <li class="nav-item d-none d-sm-block">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="customSwitches">
+            <label style="vertical-align: -webkit-baseline-middle;" class="custom-control-label" for="customSwitches">自動更新</label>
+          </div>
+        </li>
+      </ul>
+
+      <!-- 強度 頂高度 切り替え (画面サイズxs非表示)-->    
+      <div class="d-none d-sm-block">
+        <form class="form-inline my-2 my-lg-0">
+            <a class="nav-link disabled" href="#">強度</a>
+            <a class="nav-link" href="phh.html">頂高度</a>
+        </form>
+      </div>
+    </nav>
+  </div>
+  
+  <div id="map"></div>
+  <script src="main.js"></script>
+</body>
+</html>

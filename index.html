@@ -39,67 +39,65 @@
   <!-- main -->
 </head>
 <body>
-  <div class="container-fluid">
 
-    <nav class="navbar navbar-light bg-light">
-      <ul class="nav nav-pills">
+  <nav class="navbar navbar-light bg-light">
+    <ul class="nav nav-pills">
 
-        <!-- label -->
-        <li class="nav-item">
-          <h4 id="sliderLabel" style="padding-top:0.3rem; font-family:'Yu Gothic','meiryo'; font-weight:bold; width:16rem;"></h4>
-        </li>
+      <!-- label -->
+      <li class="nav-item">
+        <h4 id="sliderLabel" style="padding-top:0.3rem; font-family:'Yu Gothic','meiryo'; font-weight:bold; width:16rem;"></h4>
+      </li>
 
-        <!-- button -->
-        <li class="nav-item">
-          <!-- back -->
-          <button type="button" class="btn btn-outline-success" aria-label="Left Align" id="back">
-            <i class="bi-skip-start-fill" role="img"></i>
-          </button>
+      <!-- button -->
+      <li class="nav-item">
+        <!-- back -->
+        <button type="button" class="btn btn-outline-success" aria-label="Left Align" id="back">
+          <i class="bi-skip-start-fill" role="img"></i>
+        </button>
 
-          <!-- forward -->
-          <button type="button" class="btn btn-outline-success" aria-label="Left Align" id="forward">
-            <i class="bi-skip-end-fill" role="img"></i>
-          </button>
-          <!-- play -->
-          <button type="button" class="btn btn-outline-success" aria-label="Left Align" id="play">
-            <i class="bi-play-fill" role="img"></i>
-          </button>
-          <!-- stop -->
-          <button type="button" class="btn btn-outline-success" aria-label="Left Align" id="stop" style="display:none;">
-            <i class="bi-stop-fill" role="img"></i>
-          </button>
-          <!-- スピードコントローラー -->
-          <button type="button" class="btn btn-outline-success mr-3" aria-label="Left Align" id="animationSpeed">
-            <i class="bi-reception-1 reception" id="reception-1" role="img" style="display:none;"></i>
-            <i class="bi-reception-2 reception" id="reception-2" role="img" style="display:none;"></i>
-            <i class="bi-reception-3 reception" id="reception-3" role="img" style="display:inline;"></i>
-            <i class="bi-reception-4 reception" id="reception-4" role="img" style="display:none;"></i>
-          </button>  
-        </li>
+        <!-- forward -->
+        <button type="button" class="btn btn-outline-success" aria-label="Left Align" id="forward">
+          <i class="bi-skip-end-fill" role="img"></i>
+        </button>
+        <!-- play -->
+        <button type="button" class="btn btn-outline-success" aria-label="Left Align" id="play">
+          <i class="bi-play-fill" role="img"></i>
+        </button>
+        <!-- stop -->
+        <button type="button" class="btn btn-outline-success" aria-label="Left Align" id="stop" style="display:none;">
+          <i class="bi-stop-fill" role="img"></i>
+        </button>
+        <!-- スピードコントローラー -->
+        <button type="button" class="btn btn-outline-success mr-3" aria-label="Left Align" id="animationSpeed">
+          <i class="bi-reception-1 reception" id="reception-1" role="img" style="display:none;"></i>
+          <i class="bi-reception-2 reception" id="reception-2" role="img" style="display:none;"></i>
+          <i class="bi-reception-3 reception" id="reception-3" role="img" style="display:inline;"></i>
+          <i class="bi-reception-4 reception" id="reception-4" role="img" style="display:none;"></i>
+        </button>  
+      </li>
 
-        <!-- スライダー -->
-        <li class="nav-item">
-          <input type="range" class="form-range slider mr-3" id="slider" step="1" style="width:15em; vertical-align: -webkit-baseline-middle;">
-        </li>
+      <!-- スライダー -->
+      <li class="nav-item">
+        <input type="range" class="form-range slider mr-3" id="slider" step="1">
+      </li>
 
-        <!-- 自動更新 (画面サイズxs非表示)-->
-        <li class="nav-item d-none d-sm-block">
-          <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="customSwitches">
-            <label style="vertical-align: -webkit-baseline-middle;" class="custom-control-label" for="customSwitches">自動更新</label>
-          </div>
-        </li>
-      </ul>
+      <!-- 自動更新 (画面サイズxs非表示)-->
+      <li class="nav-item d-none d-sm-block">
+        <div class="custom-control custom-switch">
+          <input type="checkbox" class="custom-control-input" id="customSwitches">
+          <label style="vertical-align: -webkit-baseline-middle;" class="custom-control-label" for="customSwitches">自動更新</label>
+        </div>
+      </li>
+    </ul>
 
-      <!-- 強度 頂高度 切り替え (画面サイズxs非表示)-->    
-      <div class="d-none d-sm-block">
-        <form class="form-inline my-2 my-lg-0">
-            <a class="nav-link disabled" href="#">強度</a>
-            <a class="nav-link" href="phh.html">頂高度</a>
-        </form>
-      </div>
-    </nav>
-  </div>
+    <!-- 強度 頂高度 切り替え (画面サイズxs非表示)-->    
+    <div class="d-none d-sm-block">
+      <form class="form-inline my-2 my-lg-0">
+          <a class="nav-link disabled" href="#">強度</a>
+          <a class="nav-link" href="phh.html">頂高度</a>
+      </form>
+    </div>
+  </nav>
   
   <div id="map"></div>
   <script src="main.js"></script>

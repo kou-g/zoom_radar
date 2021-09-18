@@ -53,7 +53,7 @@ html, body{
    }
 }
 
-/* 画面サイズ xs(スマホ) */
+/* 画面サイズ小 (スマホを想定) */
 @media only screen and (max-device-width: 960px) {
 
    html, body{

@@ -54,7 +54,7 @@ html, body{
 }
 
 /* 画面サイズ小 (スマホを想定) */
-@media only screen and (max-device-width: 1300px) {
+@media only screen and (max-device-width: 540px) and (orientation: landscape) {
 
    html, body{
       touch-action: manipulation; /* ダブルタッチによるズームを禁止 */

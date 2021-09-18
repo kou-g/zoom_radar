@@ -54,7 +54,7 @@ html, body{
 }
 
 /* 画面サイズ xs(スマホ) */
-@media only screen and (max-device-width: 480px) {
+@media only screen and (max-device-width: 960px) {
 
    html, body{
       touch-action: manipulation; /* ダブルタッチによるズームを禁止 */

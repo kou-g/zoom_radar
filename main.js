@@ -68,6 +68,7 @@ window.onload = function() {
 
   display_img();
 }
+<<<<<<< HEAD
 
 
 // ******************************
@@ -84,14 +85,56 @@ function display_img(){
     var dt_latest = moment(data["latest"]);
     var dt = moment(data["latest"]).add(-180, "minutes");
     while ( dt <= dt_latest ) {
+=======
+
+
+// ******************************
+// 画像のファイルリスト(レーダー、ナウキャスト、短時間)を取得し、表示画像リストを作成
+// ******************************
+function display_img(){
+
+  zr.img_list = []; // 画像リストの初期化
+  //$.ajaxSetup({async: false}); // 同期通信でjsonを取得
+
+  // レーダー画像のファイルリストを作成
+  // レーダー画像の最新日時 -180分 から 5分毎に +0分 までのファイル名をリストに追加
+  //$.getJSON("/img_prr/latest_file.json", function (data){
+    data = { "latest": "2021-09-17T07:50:00" }
+    var dt_latest = moment(data["latest"]);
+    var dt = moment(data["latest"]).add(-180, "minutes");
+    while ( dt <= dt_latest) {
+>>>>>>> d79b81faf238e6ee6146736aa240690a34066f73
       dt_format = dt.format("YYYYMMDDHHmmSS");
       zr.img_list.push("/img_prr/"+dt_format+".gif");
       dt.add(5, "minutes");
     }
+<<<<<<< HEAD
   })
 
   // 降水ナウキャスト画像のファイルリストを作成
   $.getJSON("/img_nowc/latest_file.json", function (data){
+=======
+  //})
+
+  // 降水ナウキャスト画像のファイルリストを作成
+  //$.getJSON("/img_nowc/latest_file.json", function (data){
+  data = {
+    "ft1": "2021-09-17T07:55:00",
+    "ft2": "2021-09-17T08:00:00",
+    "ft3": "2021-09-17T08:05:00",
+    "ft4": "2021-09-17T08:10:00",
+    "ft5": "2021-09-17T08:15:00",
+    "ft6": "2021-09-17T08:20:00",
+    "ft7": "2021-09-17T08:25:00",
+    "ft8": "2021-09-17T08:30:00",
+    "ft9": "2021-09-17T08:35:00",
+    "ft10": "2021-09-17T08:40:00",
+    "ft11": "2021-09-17T08:45:00",
+    "ft12": "2021-09-17T08:50:00",
+    "dummy": ""
+  }
+  
+>>>>>>> d79b81faf238e6ee6146736aa240690a34066f73
     // 画像リスト末尾の日時を取得
     var path = zr.img_list[zr.img_list.length-1]; // リストの末尾を取得
     var fname = path.match(/([^/]+)\./)[1];       // ファイル名のみ抽出
@@ -106,10 +149,27 @@ function display_img(){
         zr.img_list.push("/img_nowc/"+dt_format+".gif");
       }
     }
+<<<<<<< HEAD
   })
 
   // 短時間降水予想画像のファイルリストを作成
   $.getJSON("/img_anfh/latest_file.json", function (data){
+=======
+  //})
+
+  // 短時間降水予想画像のファイルリストを作成
+  //$.getJSON("/img_anfh/latest_file.json", function (data){
+    data = {
+      "ft1": "2021-09-17T08:30:00",
+      "ft2": "2021-09-17T09:30:00",
+      "ft3": "2021-09-17T10:30:00",
+      "ft4": "2021-09-17T11:30:00",
+      "ft5": "2021-09-17T12:30:00",
+      "ft6": "2021-09-17T13:30:00",
+      "dummy": ""
+    }
+    
+>>>>>>> d79b81faf238e6ee6146736aa240690a34066f73
     // 画像リスト末尾の日時を取得
     var path = zr.img_list[zr.img_list.length-1]; // リストの末尾を取得
     var fname = path.match(/([^/]+)\./)[1];       // ファイル名のみ抽出
@@ -124,7 +184,11 @@ function display_img(){
         zr.img_list.push("/img_anfh/"+dt_format+".gif");
       }
     }
+<<<<<<< HEAD
   })
+=======
+  //})
+>>>>>>> d79b81faf238e6ee6146736aa240690a34066f73
 
   // 画像表示
   // スライダの範囲をセット

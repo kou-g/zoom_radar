@@ -86,7 +86,7 @@ function display_img(){
     var dt = moment(data["latest"]).add(-180, "minutes");
     while ( dt <= dt_latest ) {
       dt_format = dt.format("YYYYMMDDHHmmSS");
-      zr.img_list.push("/img_prr/"+dt_format+".gif");
+      zr.img_list.push("./img_prr/"+dt_format+".gif");
       dt.add(5, "minutes");
     }
   //})
@@ -118,7 +118,7 @@ function display_img(){
       var dt = moment(data["ft"+t]);
       var dt_format = dt.format("YYYYMMDDHHmmSS");
       if (dt_format > prr_dt_format){
-        zr.img_list.push("/img_nowc/"+dt_format+".gif");
+        zr.img_list.push("./img_nowc/"+dt_format+".gif");
       }
     }
   //})
@@ -144,7 +144,7 @@ function display_img(){
       var dt = moment(data["ft"+t]);
       var dt_format = dt.format("YYYYMMDDHHmmSS");
       if (dt_format > nowc_dt_format){
-        zr.img_list.push("/img_anfh/"+dt_format+".gif");
+        zr.img_list.push("./img_anfh/"+dt_format+".gif");
       }
     }
   //})

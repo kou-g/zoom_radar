@@ -60,7 +60,7 @@ window.onload = function() {
     position: 'bottomleft',
     legends: [{
         layer: zr.radar,
-        elements: [{ html: '<img class="legend_img" src=/img_other/legend_prr.png></img>' }]
+        elements: [{ html: '<img class="legend_img" src=./img_other/legend_prr.png></img>' }]
     }],
     disableVisibilityControls: true,
   })

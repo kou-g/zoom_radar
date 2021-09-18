@@ -5,7 +5,7 @@ body {
 html, body{
    width: 100%;
    height: 100%;
-   touch-action: manipulation;   
+   overflow: hidden; /* スクロールロック */
 }
 #map{
    width: 100%;
@@ -46,6 +46,10 @@ html, body{
 }
 /* 画面サイズ xs(スマホ) */
 @media only screen and (max-device-width: 480px) {
+
+   html, body{
+      touch-action: manipulation; /* ダブルタッチによるズームを禁止 */
+   }
 
    #map{
       width: 100%;

@@ -345,4 +345,6 @@ function auto_reoad(){
   }, 5*1000);
 }
 
+// ios スクロールロック
+document.addEventListener('touchmove', disableScroll, { passive: false });
 
